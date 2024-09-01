@@ -24,10 +24,10 @@ const UpComingMovieSlide = () => {
     };
     console.log('data3', data);
     if (isLoading) {
-        <Spinner animation="grow" variant="danger" />;
+        return <Spinner animation="grow" variant="danger" />;
     }
     if (isError) {
-        <Alert variant="danger">{error && error.message}</Alert>;
+        return <Alert variant="danger">{error?.message}</Alert>;
     }
     return (
         <div>
@@ -39,7 +39,9 @@ const UpComingMovieSlide = () => {
                 containerClass="carousel-container"
                 responsive={responsive}
             >
-                {data && data.results.map((movie, index) => <MovieCard movie={movie} key={index} />)}
+                {data?.results.map((movie, index) => (
+                    <MovieCard movie={movie} key={index} />
+                ))}
             </Carousel>
         </div>
     );

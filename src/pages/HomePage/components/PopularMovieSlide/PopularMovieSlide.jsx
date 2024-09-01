@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePoplarMoviesQuery } from '../../../../hooks/usePopularMovies';
+import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
 import { Spinner, Alert } from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -7,7 +7,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import './PopularMovieSlide.style.css';
 
 const PopularMovieSlide = () => {
-    const { data, isLoading, isError, error } = usePoplarMoviesQuery();
+    const { data, isLoading, isError, error } = usePopularMoviesQuery();
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -23,10 +23,10 @@ const PopularMovieSlide = () => {
         },
     };
     if (isLoading) {
-        <Spinner animation="grow" variant="danger" />;
+        return <Spinner animation="grow" variant="danger" />;
     }
     if (isError) {
-        <Alert variant="danger">{error && error.message}</Alert>;
+        return <Alert variant="danger">{error?.message}</Alert>;
     }
     return (
         <div>
@@ -38,7 +38,9 @@ const PopularMovieSlide = () => {
                 containerClass="carousel-container"
                 responsive={responsive}
             >
-                {data && data.results.map((movie, index) => <MovieCard movie={movie} key={index} />)}
+                {data?.results.map((movie, index) => (
+                    <MovieCard movie={movie} key={index} />
+                ))}
             </Carousel>
         </div>
     );
