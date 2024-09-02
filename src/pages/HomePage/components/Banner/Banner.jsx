@@ -8,10 +8,10 @@ const Banner = () => {
     const { data, isLoading, isError, error } = usePopularMoviesQuery();
     console.log('data:', data);
     if (isLoading) {
-        <Spinner animation="grow" variant="danger" />;
+        return <Spinner animation="grow" variant="danger" />;
     }
     if (isError) {
-        <Alert variant="danger">{error?.message}</Alert>;
+        return <Alert variant="danger">{error?.message}</Alert>;
     }
     return (
         <div

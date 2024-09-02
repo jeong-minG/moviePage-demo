@@ -36,4 +36,11 @@
         width: 100%;
         justify-content: end;
     }
+    .banner-text-area p {
+        /* 전체 화면 사이즈가 줄면 배너 텍스트 2줄만 보여주고 ...처리 */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }

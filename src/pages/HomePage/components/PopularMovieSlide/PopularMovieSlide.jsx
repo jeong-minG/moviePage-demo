@@ -1,27 +1,11 @@
 import React from 'react';
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
 import { Spinner, Alert } from 'react-bootstrap';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import MovieCard from '../MovieCard/MovieCard';
-import './PopularMovieSlide.style.css';
+import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
+import { responsive } from '../../../../constants/resposive';
 
 const PopularMovieSlide = () => {
     const { data, isLoading, isError, error } = usePopularMoviesQuery();
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 5,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-        },
-    };
     if (isLoading) {
         return <Spinner animation="grow" variant="danger" />;
     }
@@ -30,18 +14,7 @@ const PopularMovieSlide = () => {
     }
     return (
         <div>
-            <h3 className="carousel-title">Popular Movie</h3>
-            <Carousel
-                infinite={true}
-                centerMode={true}
-                itemClass="movie-slider p-1"
-                containerClass="carousel-container"
-                responsive={responsive}
-            >
-                {data?.results.map((movie, index) => (
-                    <MovieCard movie={movie} key={index} />
-                ))}
-            </Carousel>
+            <MovieSlider title="Popular Movies" movies={data.results} responsive={responsive} />
         </div>
     );
 };
