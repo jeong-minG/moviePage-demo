@@ -2,6 +2,8 @@ import React from 'react';
 import { Badge } from 'react-bootstrap';
 import './MovieCard.style.css';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRankingStar, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
     const { data: genreData } = useMovieGenreQuery();
@@ -30,8 +32,14 @@ const MovieCard = ({ movie }) => {
                     ))}
                 </div>
                 <div className="card-sub-txt">
-                    <div>{movie?.vote_average}</div>
-                    <div>{movie?.popularity}</div>
+                    <div>
+                        <FontAwesomeIcon className="card-icon" icon={faRankingStar} size="sm" />
+                        {movie?.vote_average?.toFixed(2)}
+                    </div>
+                    <div>
+                        <FontAwesomeIcon className="card-icon" icon={faPeopleGroup} size="sm" />
+                        {movie?.popularity?.toFixed(1)}
+                    </div>
                     <div>{movie?.adult ? 'over18' : 'under18'}</div>
                 </div>
             </div>

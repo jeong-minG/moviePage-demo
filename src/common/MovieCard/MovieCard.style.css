@@ -39,5 +39,8 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: 0.8rem;
+}
+.card-icon {
+    margin-right: 4px;
 }
