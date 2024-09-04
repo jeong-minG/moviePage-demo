@@ -12,10 +12,14 @@ const AppLayout = () => {
 
     const searchByKeyword = (event) => {
         event.preventDefault();
-        // 위 url을 바꿔준다
+        if (!keyword.trim()) {
+            alert('검색어를 입력해 주세요.');
+            return; // 검색어가 없으면 함수를 종료
+        }
         navigate(`/movies?q=${keyword}`);
         setkeyword('');
     };
+
     return (
         <div>
             <Navbar expand="lg" className="px-5 bg-black" data-bs-theme="dark">
