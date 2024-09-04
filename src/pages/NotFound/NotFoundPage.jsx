@@ -14,7 +14,7 @@ const NotFoundPage = () => {
                 marginTop: '5em',
             }}
         >
-            <h1 className="text-white">404 ERROR</h1>
+            <h1 className="text-white">NOT FOUND PAGE</h1>
             <Link to="/">
                 <Button variant="outline-danger">RETURN TO HOMEPAGE</Button>
             </Link>

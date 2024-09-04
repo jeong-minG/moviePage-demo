@@ -1,0 +1,24 @@
+.pagination {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 4rem 0 1rem !important;
+}
+
+.page-link {
+    color: #e50914 !important;
+    background-color: black !important;
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+}
+
+.page-link:hover {
+    background-color: white !important;
+    font-weight: 600 !important;
+}
+
+.active > .page-link {
+    color: #fff !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
+    font-weight: 600 !important;
+}
