@@ -16,6 +16,10 @@
     font-weight: 600 !important;
 }
 
+.disabled > .page-link {
+    color: #ccc !important;
+}
+
 .active > .page-link {
     color: #fff !important;
     background-color: #e50914 !important;
