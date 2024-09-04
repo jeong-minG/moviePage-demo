@@ -1,12 +1,14 @@
 import React from 'react';
 import { Badge } from 'react-bootstrap';
 import './MovieCard.style.css';
+import { useNavigate } from 'react-router-dom';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRankingStar, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 
 const MovieCard = ({ movie }) => {
     const { data: genreData } = useMovieGenreQuery();
+    const navigate = useNavigate();
     const showGenre = (genreIdList) => {
         if (!genreIdList || !genreData) return [];
         const genreNameList = genreIdList.map((id) => {
@@ -17,6 +19,7 @@ const MovieCard = ({ movie }) => {
     };
     return (
         <div
+            onClick={() => navigate(`/movies/${movie.id}`)}
             style={{
                 backgroundImage: `url(https://media.themoviedb.org/t/p/w600_and_h900_bestv2/${movie?.poster_path})`,
             }}

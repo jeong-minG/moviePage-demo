@@ -29,7 +29,7 @@ const MoviePage = () => {
     // 검색 결과가 없을 경우 안내 메시지 및 홈 페이지로 리다이렉트
     if (data?.results.length === 0) {
         setTimeout(() => {
-            navigate('/movies'); // 홈 페이지로 리다이렉트
+            navigate('/'); // 홈 페이지로 리다이렉트
         }, 3000); // 3초 후 리다이렉트
         return <Alert variant="warning">검색 결과가 없습니다. 3초 후 홈 페이지로 돌아갑니다.</Alert>;
     }
