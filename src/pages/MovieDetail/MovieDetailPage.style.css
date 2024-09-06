@@ -31,7 +31,7 @@ div {
     z-index: 2;
 }
 .detail-bk > div {
-    width: 1200px;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -39,9 +39,9 @@ div {
 }
 
 .detail-poster {
-    width: 1200px;
+    width: 80%;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 300px auto;
     column-gap: 40px;
     justify-content: center;
     margin: 0 auto;
