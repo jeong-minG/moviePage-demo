@@ -1,5 +1,5 @@
 .movie-card {
-    width: 220px;
+    width: 250px;
     height: 330px;
     background-size: cover;
     cursor: pointer;
@@ -43,4 +43,10 @@
 }
 .card-icon {
     margin-right: 4px;
+}
+
+@media (max-width: 768px) {
+    .movie-card {
+        width: 100%;
+    }
 }

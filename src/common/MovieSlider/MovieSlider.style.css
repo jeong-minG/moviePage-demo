@@ -5,7 +5,58 @@ h3.carousel-title {
     font-weight: 600;
     margin-left: 2rem;
 }
+
 .carousel-container {
     overflow: hidden;
     height: 420px;
+}
+
+/* MovieSlider.style.css */
+.movie-slider-container {
+    max-width: 1200px; /* 슬라이더 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.carousel-title {
+    margin-bottom: 20px;
+}
+
+/* 반응형 스타일 추가 */
+@media (max-width: 1200px) {
+    .movie-slider-container {
+        max-width: 1000px;
+    }
+    .carousel-container {
+        height: 350px;
+    }
+
+    h3.carousel-title {
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 300px;
+    }
+    .movie-slider-container {
+        max-width: 600px;
+    }
+    h3.carousel-title {
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 250px;
+    }
+    .movie-slider-container {
+        max-width: 300px;
+    }
+    h3.carousel-title {
+        font-size: 1.2rem;
+        margin-left: 0;
+    }
 }
