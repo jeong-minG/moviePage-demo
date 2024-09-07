@@ -10,14 +10,20 @@ const ReviewBox = ({ reviews }) => {
 
     return (
         <div>
-            {reviews.slice(0, isExpanded ? reviews.length : 1).map(({ author, content }, index) => (
-                <ReviewCard key={index} author={author} content={content} />
-            ))}
-            {reviews.length > 0 && <p>{`총 ${reviews.length}개의 리뷰가 있습니다.`}</p>}
-            {reviews.length > 1 && (
-                <button onClick={toggleReviews} style={styles.button}>
-                    {isExpanded ? '리뷰 접기' : '다른 리뷰 더 보기'}
-                </button>
+            {reviews.length === 0 ? (
+                <p>등록된 리뷰가 없습니다.</p>
+            ) : (
+                <>
+                    {reviews.slice(0, isExpanded ? reviews.length : 1).map(({ author, content }, index) => (
+                        <ReviewCard key={index} author={author} content={content} />
+                    ))}
+                    <p>{`총 ${reviews.length}개의 리뷰가 있습니다.`}</p>
+                    {reviews.length > 1 && (
+                        <button onClick={toggleReviews} style={styles.button}>
+                            {isExpanded ? '리뷰 접기' : '다른 리뷰 더 보기'}
+                        </button>
+                    )}
+                </>
             )}
         </div>
     );
