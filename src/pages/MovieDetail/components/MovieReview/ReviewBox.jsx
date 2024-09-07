@@ -16,7 +16,7 @@ const ReviewBox = ({ reviews }) => {
             {reviews.length > 0 && <p>{`총 ${reviews.length}개의 리뷰가 있습니다.`}</p>}
             {reviews.length > 1 && (
                 <button onClick={toggleReviews} style={styles.button}>
-                    {isExpanded ? '접기' : '더 보기'}
+                    {isExpanded ? '리뷰 접기' : '다른 리뷰 더 보기'}
                 </button>
             )}
         </div>
