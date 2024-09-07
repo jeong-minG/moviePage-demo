@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 const ReviewCard = ({ author, content }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    // 리뷰가 세 줄 이상인지 확인하는 함수
     const isLongContent = (text) => {
-        const lines = text.split('\n');
-        return lines.length > 3; // 세 줄 이상인지 확인
+        return text.length > 300;
     };
 
     const toggleExpand = () => {
@@ -18,7 +16,7 @@ const ReviewCard = ({ author, content }) => {
         <div style={styles.card}>
             <h3 style={styles.author}>{author}</h3>
             <p style={styles.content}>
-                {isExpanded || !isLongContent(content) ? content : `${content.split('\n').slice(0, 3).join('\n')}...`}
+                {isExpanded || !isLongContent(content) ? content : `${content.slice(0, 200)}...`}
             </p>
             {isLongContent(content) && (
                 <button onClick={toggleExpand} style={styles.toggleButton}>
